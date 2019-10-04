@@ -44,7 +44,19 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 let navBar = document.querySelectorAll('nav a');
 navBar.forEach((navLink, i) => {
   navLink.textContent = siteContent.nav[`nav-item-${i + 1}`];
+  navLink.style.color = 'green';
 })
+
+let navLastChild = document.createElement('a');
+navLastChild.appendChild(document.createTextNode('End'));
+navLastChild.style.color = 'green';
+let nav = document.querySelector('nav');
+nav.appendChild(navLastChild);
+
+let navFirstChild = document.createElement('a');
+navFirstChild.prepend(document.createTextNode('Start'));
+navFirstChild.style.color = 'green';
+nav.prepend(navFirstChild);
 
 let ctaText = document.querySelector('.cta-text h1');
 ctaText.textContent = siteContent.cta.h1;
